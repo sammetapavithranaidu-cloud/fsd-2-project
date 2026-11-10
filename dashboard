@@ -1,0 +1,28 @@
+<div className="dashboard">
+
+    <div className="card">
+        <h3>Total Students</h3>
+        <h2>{students.length}</h2>
+    </div>
+
+    <div className="card">
+        <h3>Average Marks</h3>
+        <h2>
+            {students.length > 0
+                ? (students.reduce((total, s) =>
+                    total + Number(s.marks), 0
+                ) / students.length).toFixed(1)
+                : 0}
+        </h2>
+    </div>
+
+    <div className="card">
+        <h3>Highest Marks</h3>
+        <h2>
+            {students.length > 0
+                ? Math.max(...students.map(s => Number(s.marks)))
+                : 0}
+        </h2>
+    </div>
+
+</div>
